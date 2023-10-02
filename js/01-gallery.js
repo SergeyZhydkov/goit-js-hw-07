@@ -25,7 +25,7 @@ alt="${description}"
 </a>
 </li>`
     )
-    .join();
+    .join('');
 }
 function handlerClick(evt) {
   evt.preventDefault();

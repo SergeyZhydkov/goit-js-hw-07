@@ -6,7 +6,6 @@ const galleryList = document.querySelector('.gallery');
 const itemGallery = createMarkup(galleryItems);
 
 galleryList.insertAdjacentHTML('beforeend', itemGallery);
-galleryList.addEventListener('click', handlerClick);
 
 function createMarkup(galleryItems) {
   return galleryItems
@@ -23,18 +22,10 @@ alt="${description}"
 </a>
 </li>`
     )
-    .join();
+    .join('');
 }
-function handlerClick(evt) {
-  evt.preventDefault();
-  if (evt.target === evt.currentTarget) {
-    return;
-  }
-  const cardImg = evt.target.closest('.gallery__image');
-  console.dir(cardImg.dataset.source);
 
-  const gallery = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionDelay: 250,
-  });
-}
+const gallery = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
